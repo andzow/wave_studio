@@ -3,5 +3,6 @@
     <MainWaMain/>
     <MainWaPortfolio/>
     <MainWaLine/>
+    <MainWaVideo/>
   </div>
 </template>
