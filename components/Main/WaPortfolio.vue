@@ -43,6 +43,7 @@ export default {
     margin: 0 auto;
     max-width: 1800px;
     position: relative;
+    overflow: hidden;
 }
 .portfolio__title {
     text-align: center;
@@ -74,7 +75,7 @@ export default {
     line-height: 22px;
 }
 .portfolio__position:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 .portfolio__back {
     position: absolute;
