@@ -30,12 +30,13 @@ export default {
 <style scoped>
 .header {
     position: fixed;
-    padding: 35px 0;
+    padding: 25px 0;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
     background: transparent;
+    backdrop-filter: blur(15px);
 }
 .header__container {
     padding: 0 20px;

@@ -257,7 +257,6 @@ export default {
 .main {
   width: 100%;
   height: 100vh;
-  background: var(--back);
   overflow: hidden;
 }
 .filter {
@@ -306,39 +305,6 @@ export default {
 }
 .main__span b:nth-of-type(2){
   animation: blink linear infinite 3s;
-}
-@keyframes blink {
-  78% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  79%{
-     color: #333;
-  }
-  80% {
-    
-    text-shadow: none;
-  }
-  81% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  82% {
-    color: #333;
-    text-shadow: none;
-  }
-  83% {
-    color: inherit;
-    text-shadow: inherit;
-  }
-  92% {
-    color: #333;
-    text-shadow: none;
-  }
-  92.5% {
-    color: inherit;
-    text-shadow: inherit;
-  }
 }
 .main__line {
   width: 589px;
