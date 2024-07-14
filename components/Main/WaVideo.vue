@@ -29,11 +29,11 @@ export default {
 .video__container {
     padding: 0 20px;
     margin: 0 auto;
-    max-width: 1800px;
+    max-width: 1600px;
 }
 .main__video {
     width: 100%;
-    height: 900px;
+    height: 750px;
     overflow: hidden;
     border-radius: 50px;
     object-fit: cover;

@@ -4,6 +4,7 @@
     --back: #1F202B;
     --white: #fff;
     --green: #00DBA7;
+    --gray: #95A1BB;
   }
   
   html {
@@ -124,11 +125,11 @@
   }
   
   ::-webkit-scrollbar {
-    width: 6px;
-    background: var(--yellow);
+    width: 4px;
+    background: var(--back);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--brown);
+    background: var(--green);
     border-radius: 5px;
   }
   

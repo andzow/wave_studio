@@ -4,5 +4,6 @@
     <MainWaPortfolio/>
     <MainWaLine/>
     <MainWaVideo/>
+    <MainWaServices/>
   </div>
 </template>
