@@ -13,8 +13,9 @@
         </nav>
         <div class="header__position">
             <button class="header__application">Оставить заявку</button>
-            <button class="header__music">
+            <button class="header__music" :class="{header__music_active: isPlaying}" @click="playPause">
                 <img src="~/assets/images/UI/music.svg" alt="">
+                <audio ref="audioPlayer" :src="musicSrc" loop></audio>
             </button>
         </div>
     </div>
@@ -23,7 +24,24 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            musicSrc: '/music/dreems.mp3',
+            isPlaying: false,
+        }
+    },
+    methods: {
+        playPause() {
+            const audio = this.$refs.audioPlayer;
+            if (audio.paused) {
+                audio.play();
+                this.isPlaying = true;
+            } else {
+                audio.pause();
+                this.isPlaying = false;
+            }
+        },
+  },
 }
 </script>
 
@@ -89,6 +107,45 @@ export default {
     background: var(--green);
     margin-left: 10px;
     transition: all .3s ease;
+    position: relative;
+}
+.header__music_active:before,
+.header__music_active:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    border: 50%;
+    border: 1px solid var(--green); 
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    animation: animate 1.5s linear infinite;
+    opacity: 0;
+    backface-visibility: hidden; 
+}
+ 
+.header__music_active:after{
+    animation-delay: 5s;
+}
+ 
+@keyframes animate
+{
+    0%
+    {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        transform: scale(1.2);
+        opacity: 0;
+    }
 }
 .header__music:hover {
     transform: scale(.95);

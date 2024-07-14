@@ -5,5 +5,6 @@
     <MainWaLine/>
     <MainWaVideo/>
     <MainWaServices/>
+    <MainWaBanner/>
   </div>
 </template>
