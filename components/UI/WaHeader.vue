@@ -6,13 +6,13 @@
         </div>
         <nav class="header__position">
             <ul class="header__nav">
-                <li class="header__item">Главная</li>
-                <li class="header__item">Портфолио</li>
-                <li class="header__item">Тарифы</li>
+                <li @click="scrollToAnchor('main')" class="header__item">Главная</li>
+                <li @click="scrollToAnchor('portfolio')" class="header__item">Портфолио</li>
+                <li @click="scrollToAnchor('tarif')" class="header__item">Тарифы</li>
             </ul>
         </nav>
         <div class="header__position">
-            <button class="header__application">Оставить заявку</button>
+            <button class="header__application" @click="modalActive = true">Оставить заявку</button>
             <button class="header__music" :class="{header__music_active: isPlaying}" @click="playPause">
                 <img src="~/assets/images/UI/music.svg" alt="">
                 <audio ref="audioPlayer" :src="musicSrc" loop></audio>
@@ -28,6 +28,7 @@ export default {
         return {
             musicSrc: '/music/dreems.mp3',
             isPlaying: false,
+            modalActive: modalActive()
         }
     },
     methods: {
@@ -41,7 +42,22 @@ export default {
                 this.isPlaying = false;
             }
         },
-  },
+        scrollToTop () {
+                window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
+        },
+        scrollToAnchor(anchorMain) {
+            const anchor = document.getElementById(anchorMain);
+            if (anchor) {
+                const offset = 90;
+                const top = anchor.getBoundingClientRect().top + window.scrollY - offset;
+                window.scrollTo({ top, behavior: "smooth" });
+            }
+            this.menuActive = false
+        },
+    }
 }
 </script>
 

@@ -1,6 +1,5 @@
 <template>
-  <section class="main">
-    <!-- <div class="landscape"></div> -->
+  <section class="main" id="main">
     <div class="filter"></div>
     <div class="main__content">
       <h1 class="main__title">

@@ -1,6 +1,9 @@
 <template>
   <div>
     <Transition>
+      <UIWaModal v-if="modalActive" />
+    </Transition>
+    <Transition>
       <UIWaPreloader v-if="!preloader" />
     </Transition>
     <UIWaHeader v-show="isPath"/>
@@ -15,7 +18,8 @@ export default {
   data() {
     return {
       isPath: false,
-      preloader: false
+      preloader: false,
+      modalActive: modalActive()
     }
   },
   mounted() {
@@ -26,7 +30,7 @@ export default {
     }
     setTimeout(() => {
       this.preloader = true;
-    }, 1000);
+    }, 1500);
   },
    watch: {
     $route() {
@@ -52,7 +56,7 @@ export default {
 }
 .v-enter-from,
 .v-leave-to {
-  transform: scale(8);
+  transform: scale(4);
   opacity: 0;
 }
 .v-enter-to,

@@ -133,6 +133,12 @@
     background: var(--green);
     border-radius: 5px;
   }
+input::placeholder {
+  color: var(--white);
+}
+textarea::placeholder {
+  color: var(--white);
+}
   
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
@@ -145,23 +151,8 @@
     display: none;
     margin: 0;
   }
-  
-  input:focus::-webkit-input-placeholder {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  textarea:focus::-moz-placeholder,
-  input:focus::-moz-placeholder {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  textarea:focus:-moz-placeholder,
-  input:focus:-moz-placeholder {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  textarea:focus:-ms-input-placeholder,
-  input:focus:-ms-input-placeholder {
+  input:focus::placeholder,
+  textarea:focus::placeholder {
     opacity: 0;
     transition: opacity 0.3s ease;
   }

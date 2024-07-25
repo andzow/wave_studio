@@ -1,5 +1,5 @@
 <template>
-  <section class="services">
+  <section class="services" id="tarif">
     <div class="services__container">
         <h2 class="services__title">Выбери свой план</h2>
         <p class="services__description">Выбор тарифа зависит от многих факторов, включая тип сайта, его функционал, ожидаемый трафик и бюджет заказчика .</p>

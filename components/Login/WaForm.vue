@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="form__image">
-                <img class="form__img" src="~/assets/images/UI/abstruct.webp" alt="" />
+                <img class="form__img" src="../../public/images/abstruct.webp" alt="" />
             </div>
         </div>
     </section>
