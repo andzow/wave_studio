@@ -67,4 +67,45 @@ export default {
 .video__name span {
     color: var(--green);
 }
+@media(max-width:1200px) {
+    .video__name {
+    left: 40px;
+    bottom: 40px;
+    font-size: 38px;
+}
+.video__position {
+    height: 650px;
+}
+.main__video {
+    height: 650px;
+}
+}
+@media(max-width:900px) {
+    .video__name {
+    left: 40px;
+    bottom: 40px;
+    font-size: 32px;
+    max-width: 600px;
+}
+.video__position {
+    height: 550px;
+}
+.main__video {
+    height: 550px;
+}
+}
+@media(max-width:660px) {
+    .video__name {
+    left: 20px;
+    bottom: 20px;
+    font-size: 28px;
+    max-width: 600px;
+}
+.video__position {
+    height: 500px;
+}
+.main__video {
+    height: 500px;
+}
+}
 </style>

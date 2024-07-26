@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Transition>
+    <!-- <Transition>
       <UIWaModal v-if="modalActive" />
     </Transition>
     <Transition>
       <UIWaPreloader v-if="!preloader" />
     </Transition>
-    <UIWaHeader v-show="isPath"/>
+    <UIWaHeader v-show="isPath"/> -->
     <main>
       <NuxtPage />
     </main>

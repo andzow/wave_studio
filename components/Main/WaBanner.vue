@@ -2,9 +2,12 @@
   <section class="banner">
     <div class="banner__container">
         <div class="banner__position">
-            <p class="banner__name">Компания</p>
-            <a class="banner__gmail">waveStudioSite@gmail.com</a>
-            <p class="banner__info">Будь как волна океана: сильной, неукротимой и всегда движущейся вперёд. Не бойся преград на своём пути, ведь каждая волна знает, что сила её не в избегании препятствий, а в умении преодолевать их. Пусть твоя энергия смывает любые сомнения и страхи, открывая бескрайние горизонты возможностей!</p>
+            <div class="banner__log">
+                <p class="banner__name">Компания</p>
+                <p class="banner__gmail">WaveStudioLimited</p>
+                <p class="banner__info">«Бизнес, нацеленный на удовлетворение чьих то потребностей, обычно оказывается успешным; бизнес, нацеленный на получение прибыли, редко бывает успешным» — Николас Батлер.</p>
+            </div>
+            <img class="banner__qr" src="~/assets/images/Main/qr.svg" alt="">
         </div>
     </div>
   </section>
@@ -31,13 +34,20 @@ export default {
     width: 100%;
     padding: 40px;
     background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.banner__qr {
+    width: 150px;
+    margin-left: 20px;
 }
 .banner__name {
     color: var(--white);
 }
 .banner__gmail {
     color: var(--green);
-    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: 40px;
     cursor: pointer;
 }
@@ -46,8 +56,34 @@ export default {
     text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em var(--green), 0 0 0.5em var(--green), 0 0 0.1em var(--green), 0 10px 3px #000;
 }
 .banner__info {
-    max-width: 900px;
+    max-width: 800px;
     color: var(--white);
+}
+@media(max-width: 840px) {
+.banner__position {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.banner__qr {
+    width: 150px;
+    margin-left: 0px;
     margin-top: 20px;
+}
+.banner__info,
+.banner__gmail,
+.banner__name {
+    width: 100%;
+    text-align: center;
+}
+}
+@media(max-width:480px) {
+.banner__gmail {
+    font-size: 32px;
+}
+}
+@media(max-width:450px) {
+.banner__gmail {
+    font-size: 28px;
+}
 }
 </style>

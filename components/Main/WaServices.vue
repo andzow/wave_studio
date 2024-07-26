@@ -119,6 +119,7 @@ export default {
 }
 .services__price {
     color: var(--green);
+    white-space: nowrap;
 }
 .services__info {
     font-size: 18px;
@@ -139,5 +140,44 @@ export default {
 }
 .services__count {
     color: var(--gray);
+}
+@media(max-width: 1260px) {
+.services__grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+    "tariff1 tariff1 tariff2 tariff2"
+    "tariff3 tariff3 tariff4 tariff4"
+    ". tariff5 tariff5 .";
+    column-gap: 30px;
+    row-gap: 30px;
+}
+}
+@media(max-width: 800px) {
+.services__grid {
+    max-width: 600px;
+    margin: 40px auto 0 auto;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+    "tariff1"
+    "tariff2"
+    "tariff3"
+    "tariff4"
+    "tariff5";
+    column-gap: 30px;
+    row-gap: 30px;
+}
+}
+@media(max-width:480px) {
+.services__title {
+    font-size: 32px;
+}
+}
+@media(max-width:450px) {
+.services__title {
+    font-size: 28px;
+}
+.services__description {
+    font-size: 16px;
+}
 }
 </style>
