@@ -35,6 +35,7 @@ export default {
 .line {
   position: relative;
   padding: 50px 0 50px;
+  overflow: hidden;
 }
 .line__run {
   display: inline-flex;
@@ -63,5 +64,18 @@ export default {
   100% {
     transform: translateX(-100%);
   }
+}
+@media(max-width: 1200px) {
+.line__description {
+    font-size: 46px;
+}
+}
+@media(max-width: 900px) {
+.line__description {
+    font-size: 40px;
+}
+.line {
+  padding: 20px 0 20px;
+}
 }
 </style>

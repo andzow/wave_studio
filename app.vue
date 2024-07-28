@@ -2,11 +2,11 @@
   <div>
     <!-- <Transition>
       <UIWaModal v-if="modalActive" />
-    </Transition>
+    </Transition> -->
     <Transition>
       <UIWaPreloader v-if="!preloader" />
     </Transition>
-    <UIWaHeader v-show="isPath"/> -->
+    <UIWaHeader v-show="isPath"/>
     <main>
       <NuxtPage />
     </main>

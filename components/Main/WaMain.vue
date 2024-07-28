@@ -294,6 +294,7 @@ export default {
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
+  white-space: nowrap;
 }
 .main__span {
   color: var(--white);
@@ -362,12 +363,44 @@ export default {
   left: 0;
   bottom: 0;
 }
-/* @media (max-width: 50em) {
-  .content h1 {
-    font-size: 12vmax;
-  }
-  .editorial {
-    height: 17vw;
-  }
-} */
+@media (max-width: 1000px) {
+.main__title {
+  font-size: 66px;
+}
+}
+@media (max-width: 840px) {
+.main__title {
+  font-size: 56px;
+}
+}
+@media (max-width: 700px) {
+.main__title {
+  font-size: 46px;
+}
+.main__line {
+  width: 350px;
+  height: 4px;
+}
+.main__line_green {
+  width: 200px;
+  height: 4px;
+  background: var(--green);
+}
+}
+@media (max-width: 550px) {
+.main__title {
+  font-size: 36px;
+}
+.editorial {
+  height: 10em;
+}
+.main__content {
+  top: 50%;
+}
+}
+@media (max-width: 450px) {
+.main__title {
+  font-size: 30px;
+}
+}
 </style>

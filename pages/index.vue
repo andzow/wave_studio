@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <MainWaMain/>
+    <MainWaMain/>
     <MainWaPortfolio/>
-    <MainWaLine/> -->
+    <MainWaLine/>
     <MainWaVideo/>
     <MainWaServices/>
     <MainWaBanner/>

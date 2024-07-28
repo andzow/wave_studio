@@ -4,7 +4,7 @@
         <div class="header__position">
             <img class="header__logo" src="~/assets/images/UI/logo.png" alt="">
         </div>
-        <nav class="header__position">
+        <nav class="header__position header__position_dispaly">
             <ul class="header__nav">
                 <li @click="scrollToAnchor('main')" class="header__item">Главная</li>
                 <li @click="scrollToAnchor('portfolio')" class="header__item">Портфолио</li>
@@ -119,6 +119,7 @@ export default {
 .header__music {
     height: 55px;
     width: 55px;
+    min-width: 55px;
     border-radius: 50%;
     background: var(--green);
     margin-left: 10px;
@@ -190,5 +191,37 @@ export default {
   height: 2px;
   background-color: var(--green);
   transition: width 0.5s;
+}
+@media(max-width: 900px) {
+.header__position_dispaly {
+    display: none;
+}
+}
+@media(max-width: 550px) {
+.header__application {
+    height: 45px;
+    padding: 0 10px;
+    color: var(--white);
+    border-radius: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+}
+}
+.header__music {
+    height: 45px;
+    width: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    background: var(--green);
+    margin-left: 10px;
+    transition: all .3s ease;
+    position: relative;
+}
+.header {
+    padding: 20px 0;
+}
+.header__logo {
+    width: 120px;
 }
 </style>

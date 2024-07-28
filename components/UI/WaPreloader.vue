@@ -97,4 +97,10 @@ li:nth-child(22) { z-index: 3; animation-delay: 2.2s; }
 li:nth-child(23) { z-index: 2; animation-delay: 2.3s; }
 li:nth-child(24) { z-index: 1; animation-delay: 2.4s; }
 li:nth-child(25) { z-index: 0; animation-delay: 0.9s; }
+@media(max-width: 900px) {
+  li {
+  width: 30px;
+  height: 30px;
+}
+}
 </style>
