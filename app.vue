@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- <Transition>
+    <Transition>
       <UIWaModal v-if="modalActive" />
-    </Transition> -->
+    </Transition>
     <Transition>
       <UIWaPreloader v-if="!preloader" />
     </Transition>
