@@ -96,10 +96,14 @@ export default {
 }
 @media(max-width:660px) {
     .video__name {
-    left: 20px;
-    bottom: 20px;
+    left: 50%;
+    top: 50%;
+    bottom: 0;
+    text-align: center;
+    transform: translate(-50%, -50%);
     font-size: 28px;
-    max-width: 600px;
+    width: 300px;
+    height: 110px;
 }
 .video__position {
     height: 500px;

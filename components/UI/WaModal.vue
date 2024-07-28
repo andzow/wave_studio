@@ -2,7 +2,7 @@
   <div class="modal__container">
     <div class="modal" @mousemove="updateParallax(0)" @mouseleave="resetParallax" :ref="'elementCard' + 0">
     <div class="modal__image" :style="squareStyle" :class="{ modal__image_active: isActiveProducts }">
-        <div class="modal__line" :class="{ modal__line_active: isActiveLine }">
+        <div class="modal__line" :class="{ modal__line_active: isActiveProducts }">
           <h3 class="modal__title">
             Оставьте контакты!
           </h3>
@@ -33,8 +33,8 @@
                 Некорректный телефон
               </p>
                 <input class="card__input" :class="{
-                    card__validator: PhoneValidator === 2,
-                    card__error: PhoneValidator === 1,
+                    card__validator: NumberValidator === 2,
+                    card__error: NumberValidator === 1,
                 }" placeholder="+7 (000) - 000 - 00 - 00" type="text" v-model="isNumber" @input="numberValidator" @beforeinput="handleBeforeInput"/>
             </div>
             </div>
@@ -49,7 +49,7 @@
                 }" placeholder="Введите текст сообщения" type="text" v-model="isText" @input="textValidator" />
             </div>
 
-            <button class="modal__btn">Свяжитесь со мной!</button>
+            <button class="modal__btn" @click="sendData">Свяжитесь со мной!</button>
           </div>
             <svg @click="modalActive = false" class="modal__close" width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="29.6924" y1="11.3078" x2="11.3076" y2="29.6926" stroke="white" stroke-width="3" stroke-linecap="round"/>
@@ -99,7 +99,7 @@
         const centerY = rect.top + rect.height / 2;
   
         const deltaX = (event.clientX - centerX) / 40;
-        const deltaY = (event.clientY - centerY) / 20;
+        const deltaY = (event.clientY - centerY) / 35;
         this.rotationX = -deltaY;
         this.rotationY = deltaX;
       },
@@ -169,7 +169,6 @@
       if (this.isNumber.length === 25) {
         this.isNumber = this.isNumber.slice(0, -1);
       }
-
       if (this.isNumber.length >= 0) {
         this.NumberValidator = 1;
       }
@@ -184,6 +183,15 @@
           this.TextValidator = 2
         }
       },
+      sendData() {
+        this.nameValidator()
+        this.mailValidator()
+        this.textValidator()
+        this.numberValidator(event)
+        if (this.NumberValidator === 2 && this.NameValidator === 2 && this.MailValidator === 2 && this.TextValidator === 2) {
+          console.log("AAAAA")
+        }
+      }
     },
   };
 </script>
@@ -208,7 +216,8 @@
 }
 .modal {
   position: relative;
-  width: 700px;
+  width: 740px;
+  padding: 0 20px;
   perspective: 1000px;
   transform-style: preserve-3d;
 }
@@ -332,5 +341,24 @@
   color: var(--white);
   width: 100%;
   margin-top: 15px;
+  transition: all .3s ease;
+}
+.modal__btn:hover {
+  transform: scale(.95);
+}
+@media(max-width: 560px) {
+  .modal__position {
+    flex-direction: column;
+  }
+  .modal__title {
+    font-size: 24px;
+  }
+  .modal {
+  position: relative;
+  width: 740px;
+  padding: 0 20px;
+  perspective: 1000px;
+  transform-style: flat;
+}
 }
 </style>
