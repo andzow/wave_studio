@@ -48,8 +48,14 @@
                     card__error: TextValidator === 1,
                 }" placeholder="Введите текст сообщения" type="text" v-model="isText" @input="textValidator" />
             </div>
-
-            <button class="modal__btn" @click="sendData">Свяжитесь со мной!</button>
+            <div class="modal__other">
+              <div class="modal__circle" @click="isReady = !isReady">
+                <div class="modal__circle_small" :class="{'modal__circle_small_active': isReady}"></div>
+              </div>
+              <p class="modal__text">нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <NuxtLink class="modal__policy" to="/politics" @click="modalActive= false">политикой конфиденциальности</NuxtLink></p>
+            </div>
+            <button class="modal__btn" @click="sendData" disabled>Свяжитесь со мной!</button>
+            <p class="modal__info">Внимание! Перед отправкой пожайлуйста убедитесь, что номер телефона который вы указали привязан к вашему телеграмм профилю. Ведь дальнейшая связь будет осуществлятся именно там</p>
           </div>
             <svg @click="modalActive = false" class="modal__close" width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
               <line x1="29.6924" y1="11.3078" x2="11.3076" y2="29.6926" stroke="white" stroke-width="3" stroke-linecap="round"/>
@@ -63,6 +69,8 @@
 </template>
   
 <script>
+import ApplicationController from "@/http/controllers/ApplicationController";
+
   export default {
     data() {
       return {
@@ -78,6 +86,8 @@
         NumberValidator: 0,
         isText: "",
         TextValidator: 0,
+        useStatus: useStatus(),
+        isReady: false
       };
     },
     computed: {
@@ -98,8 +108,8 @@
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
   
-        const deltaX = (event.clientX - centerX) / 40;
-        const deltaY = (event.clientY - centerY) / 35;
+        const deltaX = (event.clientX - centerX) / 50;
+        const deltaY = (event.clientY - centerY) / 40;
         this.rotationX = -deltaY;
         this.rotationY = deltaX;
       },
@@ -183,16 +193,38 @@
           this.TextValidator = 2
         }
       },
-      sendData() {
+      async sendData() {
         this.nameValidator()
         this.mailValidator()
         this.textValidator()
         this.numberValidator(event)
         if (this.NumberValidator === 2 && this.NameValidator === 2 && this.MailValidator === 2 && this.TextValidator === 2) {
-          console.log("AAAAA")
+          const FormObject = {
+            name: this.isName,
+            phone: this.isNumber,
+            mail: this.isMail,
+            text: this.isText,
+            status: "check",
+            statusName: "Ожидает ответа",
+          };
+          this.useStatus = "clock"
+          try {
+            await ApplicationController.createApplication(FormObject);
+            this.useStatus = 201
+          } catch (e) {
+            this.useStatus = 500
+          }
         }
       }
     },
+    watch: {
+      isReady() {
+        const btn = document.querySelector('.modal__btn');
+        if (btn) {
+          btn.disabled = !this.isReady; // Добавляем или убираем атрибут disabled в зависимости от состояния isReady
+        }
+      }
+    }
   };
 </script>
 
@@ -346,6 +378,53 @@
 .modal__btn:hover {
   transform: scale(.95);
 }
+.modal__info {
+  color: var(--white);
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.modal__other {
+  margin-top: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+.modal__circle {
+  width: 15px;
+  min-width: 15px;
+  height: 15px;
+  border: 1px solid var(--green);
+  border-radius: 50%;
+  cursor: pointer;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+}
+.modal__circle_small {
+  width: 0px;
+  min-width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background: var(--green);
+  transition: all .3s ease;
+}
+.modal__circle_small_active {
+  width: 9px;
+  min-width: 9px;
+  height: 9px;
+}
+.modal__text {
+  color: var(--white);
+  margin-left: 5px;
+}
+.modal__policy {
+  color: var(--green);
+}
+.modal__btn:disabled {
+  background: #6c6d6d;
+  pointer-events: none;
+}
 @media(max-width: 560px) {
   .modal__position {
     flex-direction: column;
@@ -359,6 +438,12 @@
   padding: 0 20px;
   perspective: 1000px;
   transform-style: flat;
+}
+.card__input {
+  padding: 10px;
+}
+.card__textarea {
+  height: 120px !important;
 }
 }
 </style>

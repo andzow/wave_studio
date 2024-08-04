@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wave-studio.site/sitemap.xml

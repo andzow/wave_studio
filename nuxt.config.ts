@@ -9,5 +9,19 @@ export default defineNuxtConfig({
     "/login": { ssr: false },
   },
 
-  compatibilityDate: "2024-07-13"
+  app: {
+    head: {
+      title: "Разработка сайтов и web приложений | waveStudio",
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      link: [
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/favicon.png",
+        },
+      ],
+      htmlAttrs: { lang: "ru-RU" },
+    }
+  }
 })

@@ -3,7 +3,17 @@
     <div class="portfolio__container">
         <h2 class="portfolio__title">Портфолио</h2>
         <div class="portfolio__position">
-            <img class="portfolio__video" src="~/assets/images/Main/vvkifpu.png" alt="">
+            <video 
+                class="portfolio__video"
+                type="video/mp4"
+                autoplay
+                muted
+                loop
+                preload="metadata"
+                playsinline
+            >
+                <source :src="'/video/vvkifpu.mp4'" />
+            </video>
             <div class="portfolio__content">
                 <h3 class="portfolio__name">Создаем образовательные сайты</h3>
                 <p class="portfolio__desctiption">Наши специалисты используют передовые технологии и инновационные методики для создания интерактивных и удобных в использовании сайтов, которые помогают учебным заведениям и образовательным организациям достичь своих целей.</p>
@@ -11,7 +21,17 @@
         </div>
 
         <div class="portfolio__position portfolio__position_second">
-            <img class="portfolio__video" src="~/assets/images/Main/window.png" alt="">
+            <video 
+                class="portfolio__video"
+                type="video/mp4"
+                autoplay
+                muted
+                loop
+                preload="metadata"
+                playsinline
+            >
+                <source :src="'/video/ove.mp4'" />
+            </video>
             <div class="portfolio__content portfolio__content_second">
                 <h3 class="portfolio__name">Продвижение сайтов</h3>
                 <p class="portfolio__desctiption">Наша команда экспертов в области SEO и маркетинга веб-сайтов использует последние технологии и стратегии для обеспечения постоянного потока трафика на ваш сайт, что ведет к увеличению продаж и укреплению вашего онлайн-присутствия. Позвольте нам помочь вам раскрыть полный потенциал вашего бизнеса через эффективное продвижение сайта.</p>
@@ -19,7 +39,17 @@
         </div>
 
         <div class="portfolio__position">
-            <img class="portfolio__video" src="~/assets/images/Main/my_stories.png" alt="">
+            <video 
+                class="portfolio__video"
+                type="video/mp4"
+                autoplay
+                muted
+                loop
+                preload="metadata"
+                playsinline
+            >
+                <source :src="'/video/vvkifpu.mp4'" />
+            </video>
             <div class="portfolio__content">
                 <h3 class="portfolio__name">Создание  интернет-магазин</h3>
                 <p class="portfolio__desctiption">Создание интернет-магазина – это ключевой шаг для любого бизнеса, стремящегося расширить свою клиентскую базу и увеличить продажи. Наш сервис по созданию интернет-магазинов предлагает комплексные решения, начиная от дизайна и заканчивая технической реализацией и поддержкой.</p>

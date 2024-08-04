@@ -4,6 +4,9 @@
       <UIWaModal v-if="modalActive" />
     </Transition>
     <Transition>
+      <UIViModalStatus />
+    </Transition>
+    <Transition>
       <UIWaPreloader v-if="!preloader" />
     </Transition>
     <UIWaHeader v-show="isPath"/>
@@ -14,6 +17,8 @@
 </template>
 
 <script>
+import AuthController from "@/http/controllers/AuthController";
+
 export default {
   data() {
     return {
@@ -31,8 +36,11 @@ export default {
     setTimeout(() => {
       this.preloader = true;
     }, 1500);
+    if (localStorage.getItem("accessToken")) {
+      this.checkAuthApp();
+    }
   },
-   watch: {
+  watch: {
     $route() {
       this.checkPath(this.$route.name);
     },
@@ -44,6 +52,9 @@ export default {
       } else {
         this.isPath = true;
       }
+    },
+    async checkAuthApp() {
+      await AuthController.cheackAuth();
     },
   },
 }

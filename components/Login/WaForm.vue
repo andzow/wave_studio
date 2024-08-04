@@ -38,7 +38,7 @@
 </template>
   
 <script>
-// import AuthController from "@/http/controllers/AuthController";
+import AuthController from "@/http/controllers/AuthController";
 
 export default {
     data() {
@@ -47,7 +47,7 @@ export default {
             isPassword: "",
             LoginValidator: 0,
             PasswordValidator: 0,
-            // useStatus: useStatus()
+            useStatus: useStatus()
         };
     },
     methods: {
@@ -72,10 +72,12 @@ export default {
             if (this.isPassword.length === 0) {
                 this.PasswordValidator = 1
             }
+            console.log("AAAAA")
             if (this.isLogin.length !== 0 && this.isPassword.length !== 0) {
-                // this.useStatus = "clock";
-                // const dataLogin = await AuthController.login(this.isLogin, this.isPassword)
-                // this.useStatus = dataLogin
+                console.log("BBBB")
+                this.useStatus = "clock";
+                const dataLogin = await AuthController.login(this.isLogin, this.isPassword)
+                this.useStatus = dataLogin
             }
         },
     },

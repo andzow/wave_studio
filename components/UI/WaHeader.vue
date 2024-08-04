@@ -49,13 +49,17 @@ export default {
             })
         },
         scrollToAnchor(anchorMain) {
-            const anchor = document.getElementById(anchorMain);
-            if (anchor) {
-                const offset = 90;
-                const top = anchor.getBoundingClientRect().top + window.scrollY - offset;
-                window.scrollTo({ top, behavior: "smooth" });
+            if (this.$route.name === "index") {
+                const anchor = document.getElementById(anchorMain);
+                if (anchor) {
+                    const offset = 110;
+                    const top = anchor.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            } else {
+                const newRoute = { path: '/', hash: `#${anchorMain}`};
+                this.$router.push(newRoute);
             }
-            this.menuActive = false
         },
     }
 }
@@ -207,7 +211,6 @@ export default {
     font-size: 16px;
     line-height: 16px;
 }
-}
 .header__music {
     height: 45px;
     width: 45px;
@@ -224,4 +227,6 @@ export default {
 .header__logo {
     width: 120px;
 }
+}
+
 </style>
