@@ -186,6 +186,12 @@ import ApplicationController from "@/http/controllers/ApplicationController";
         this.NumberValidator = 2;
       }
       },
+      clearApplication() {
+        this.isName = ''
+        this.isMail = ''
+        this.isNumber = ''
+        this.isText = ''
+      },
       textValidator() {
         if (this.isText.length === 0) {
           this.TextValidator = 1
@@ -211,6 +217,8 @@ import ApplicationController from "@/http/controllers/ApplicationController";
           try {
             await ApplicationController.createApplication(FormObject);
             this.useStatus = 201
+            this.clearApplication()
+            this.modalActive = false
           } catch (e) {
             this.useStatus = 500
           }
