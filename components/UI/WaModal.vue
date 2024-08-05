@@ -1,6 +1,6 @@
 <template>
   <div class="modal__container">
-    <div class="modal" @mousemove="updateParallax(0)" @mouseleave="resetParallax" :ref="'elementCard' + 0">
+    <form class="modal" @mousemove="updateParallax(0)" @mouseleave="resetParallax" :ref="'elementCard' + 0" @submit.prevent="sendData">
     <div class="modal__image" :style="squareStyle" :class="{ modal__image_active: isActiveProducts }">
         <div class="modal__line" :class="{ modal__line_active: isActiveProducts }">
           <h3 class="modal__title">
@@ -54,7 +54,7 @@
               </div>
               <p class="modal__text">нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <NuxtLink class="modal__policy" to="/politics" @click="modalActive= false">политикой конфиденциальности</NuxtLink></p>
             </div>
-            <button class="modal__btn" @click="sendData" disabled>Свяжитесь со мной!</button>
+            <button class="modal__btn" type="submit" disabled>Свяжитесь со мной!</button>
             <p class="modal__info">Внимание! Перед отправкой пожайлуйста убедитесь, что номер телефона который вы указали привязан к вашему телеграмм профилю. Ведь дальнейшая связь будет осуществлятся именно там</p>
           </div>
             <svg @click="modalActive = false" class="modal__close" width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@
         </div>
         <div class="modal__back"></div>
       </div>
-    </div>
+    </form>
   </div>
 </template>
   
