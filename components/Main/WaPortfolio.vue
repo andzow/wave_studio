@@ -48,7 +48,7 @@
                 preload="metadata"
                 playsinline
             >
-                <source :src="'/video/vvkifpu.mp4'" />
+                <source :src="'/video/lookbook.mp4'" />
             </video>
             <div class="portfolio__content">
                 <h3 class="portfolio__name">Создание  интернет-магазин</h3>
@@ -92,6 +92,7 @@ export default {
 }
 .portfolio__video {
     object-fit: cover;
+    max-width: 860px;
 }
 .portfolio__position {
     display: flex;

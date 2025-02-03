@@ -26,9 +26,9 @@
               stroke-linecap="round" />
             <circle cx="34" cy="34" r="32" stroke="#00DBA7" stroke-width="4" />
           </svg>
-          <h3 class="modalInfo__title">Успешное создание!</h3>
+          <h3 class="modalInfo__title">Вы успешно отправили заявку</h3>
           <p class="modalInfo__description">
-            Мы рады сообщить, что вы успешно создали новый объект
+            Мы рады сообщить, что вы успешно отправили заявку. Наш менеджер свяжется с вами в ближайшее время для дальнейшей консультации.
           </p>
           <NuxtLink class="modalInfo__btn" @click="useStatus = null">Хорошо</NuxtLink>
         </div>
@@ -124,7 +124,6 @@
 </template>
   
   <script>
-  import ApplicationController from "@/http/controllers/ApplicationController";
   export default {
     data() {
       return {
@@ -136,12 +135,6 @@
       offActive() {
         this.useStatus = null
       },
-      async deleteAll() {
-        await ApplicationController.deleteAllApplication()
-        const useData = await ApplicationController.findApplication(this.$route.query)
-        this.useApplication = useData.application
-        this.useStatus = null
-      }
     },
   };
   </script>

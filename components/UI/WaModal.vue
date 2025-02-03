@@ -69,7 +69,7 @@
 </template>
   
 <script>
-import ApplicationController from "@/http/controllers/ApplicationController";
+import sendApplication from "~/services/api/telegram/sendApplication";
 
   export default {
     data() {
@@ -205,17 +205,27 @@ import ApplicationController from "@/http/controllers/ApplicationController";
         this.textValidator()
         this.numberValidator(event)
         if (this.NumberValidator === 2 && this.NameValidator === 2 && this.MailValidator === 2 && this.TextValidator === 2) {
+          const currentDate = new Date();
+          const day = String(currentDate.getDate()).padStart(2, '0');
+          const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+          const year = currentDate.getFullYear();
+          const formattedDate = `${day}.${month}.${year}`;
+
+          const hours = String(currentDate.getHours()).padStart(2, '0');
+          const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+          const formattedTime = `${hours}:${minutes}`;
+
           const FormObject = {
             name: this.isName,
             phone: this.isNumber,
             mail: this.isMail,
             text: this.isText,
-            status: "check",
-            statusName: "Ожидает ответа",
+            date: formattedDate, 
+            time: formattedTime,  
           };
           this.useStatus = "clock"
           try {
-            await ApplicationController.createApplication(FormObject);
+            sendApplication(FormObject)
             this.useStatus = 201
             this.clearApplication()
             this.modalActive = false

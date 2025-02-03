@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     "/admin": { ssr: false },
     "/login": { ssr: false },
   },
+
   app: {
     head: {
       script: [
@@ -53,5 +54,7 @@ export default defineNuxtConfig({
       ],
       htmlAttrs: { lang: "ru-RU" },
     }
-  }
+  },
+
+  compatibilityDate: "2025-02-03"
 })
